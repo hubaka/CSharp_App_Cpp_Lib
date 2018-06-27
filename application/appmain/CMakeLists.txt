@@ -1,0 +1,81 @@
+cmake_minimum_required(VERSION 2.8)
+
+include(cmakebuild)
+set_project_id("_PROJECT_NAME_")
+
+#
+# List with modules we depend on
+#
+add_folder_dependencies(
+	#"opencv"
+	# "resource"
+	# "mainwind"
+	# "igrid"
+	# "babygrid"
+	# "errhandle"
+	# "toolbar"
+	# "dbms"
+	# "sqlite"
+	# "encrypter"
+)
+
+add_lib_dependencies(
+	# "sqlite"
+)
+
+#
+# List of public module header files, relative to the module source folder
+#
+add_public_header_files(
+	# "appmain.h"
+)
+
+#
+#
+#
+add_resource_files(
+	# "Form1.resx"
+	# "Form1.en.resx"
+	# "Form1.es.resx"
+	# "Form1.fr.resx"
+	"App.config"
+	"Properties/Resources.resx"
+	"Properties/Settings.settings"
+)
+
+#
+#
+#
+add_designer_cs_properties(
+	 "Properties/AssemblyInfo.cs"
+	 "Properties/Resources.Designer.cs"
+	 "Properties/Settings.Designer.cs"
+	 "Properties/Resources.resx"
+	 "Properties/Settings.settings"
+	 "Form1.Designer.cs"
+)
+#
+# List of source files, relative to the module source folder
+#
+add_source_files(
+	"program.cs"
+	"Form1.cs"
+	"Form1.Designer.cs"
+	"Form1.resx"
+	"Form1.en.resx"
+	"Form1.es.resx"
+	"Form1.fr.resx"
+	"Properties/AssemblyInfo.cs"
+	"Properties/Resources.Designer.cs"
+	"Properties/Settings.Designer.cs"
+)
+
+
+#add_libs_to_exe(
+#	${DEP_LIBS}
+#)
+
+#
+# Build and install library
+#
+install_module_exe()
