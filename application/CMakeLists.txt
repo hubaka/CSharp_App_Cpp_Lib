@@ -4,6 +4,7 @@ include(cmakebuild)
 set_project_id("_PROJECT_NAME_")
 
 add_source_layers(
+	"l" "algo"
 	#"s" "common"
 	# "s" "windows"
 	# "s" "database"

@@ -1,9 +1,0 @@
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\Debug\appmain_r.exe.config
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\Debug\appmain_r.exe
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\Debug\appmain_r.pdb
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\obj\Win32\Debug\appmain_r.csprojResolveAssemblyReference.cache
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\obj\Win32\Debug\source.application.resources
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\obj\Win32\Debug\source.Properties.Resources.resources
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\obj\Win32\Debug\appmain_r.csproj.GenerateResource.Cache
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\obj\Win32\Debug\appmain_r.exe
-C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\obj\Win32\Debug\appmain_r.pdb
