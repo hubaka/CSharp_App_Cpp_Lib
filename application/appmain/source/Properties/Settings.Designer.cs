@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace appmain_r.Properties
+namespace appmain.Properties
 {
 
 

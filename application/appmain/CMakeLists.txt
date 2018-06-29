@@ -34,40 +34,46 @@ add_public_header_files(
 #
 #
 add_resource_files(
-	# "Form1.resx"
-	# "Form1.en.resx"
-	# "Form1.es.resx"
-	# "Form1.fr.resx"
 	"App.config"
+	"application.resx"
 	"Properties/Resources.resx"
 	"Properties/Settings.settings"
+	# "Properties/Resources.resx"
+	# "Properties/Settings.settings"
 )
 
 #
 #
 #
 add_designer_cs_properties(
-	 "Properties/AssemblyInfo.cs"
-	 "Properties/Resources.Designer.cs"
-	 "Properties/Settings.Designer.cs"
-	 "Properties/Resources.resx"
-	 "Properties/Settings.settings"
-	 "Form1.Designer.cs"
+	"application.resx"
+	"Properties/Resources.resx"
+	 # "Properties/AssemblyInfo.cs"
+	 # "Properties/Resources.Designer.cs"
+	 # "Properties/Settings.Designer.cs"
+	 # "Properties/Resources.resx"
+	 # "Properties/Settings.settings"
 )
 #
 # List of source files, relative to the module source folder
 #
 add_source_files(
-	"program.cs"
-	"Form1.cs"
-	"Form1.Designer.cs"
-	"Form1.resx"
-	"Form1.en.resx"
-	"Form1.es.resx"
-	"Form1.fr.resx"
+	"application.cs"
+	"application.Designer.cs"
+	"Program.cs"
 	"Properties/AssemblyInfo.cs"
 	"Properties/Resources.Designer.cs"
 	"Properties/Settings.Designer.cs"
+	# "program.cs"
+	# "Form1.cs"
+	# "Form1.Designer.cs"
+	# "Form1.resx"
+	# "Form1.en.resx"
+	# "Form1.es.resx"
+	# "Form1.fr.resx"
+	# "Properties/AssemblyInfo.cs"
+	# "Properties/Resources.Designer.cs"
+	# "Properties/Settings.Designer.cs"
 )
 
 

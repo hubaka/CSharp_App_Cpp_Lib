@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B3781B54-520D-3F52-B71E-D2ED59ECB0E2}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>appmain_r</ProjectName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x86'" Label="Configuration">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <OutputPath>C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\Debug\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <PlatformToolset>v140</PlatformToolset>
+    <AssemblyName>appmain_r</AssemblyName>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\Debug\appmain_r.exe</StartProgram>
+    <AdditionalOptions>/MT</AdditionalOptions>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <LangVersion>3</LangVersion>
+    <Optimize>false</Optimize>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
+    <OutputPath>C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\Release\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <PlatformToolset>v140</PlatformToolset>
+    <AssemblyName>appmain_r</AssemblyName>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\Release\appmain_r.exe</StartProgram>
+    <AdditionalOptions>/MT</AdditionalOptions>
+    <DebugType>none</DebugType>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>queue</ErrorReport>
+    <LangVersion>3</LangVersion>
+    <Optimize>true</Optimize>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32' Or '$(Configuration)|$(Platform)'=='MinSizeRel|x86'" Label="Configuration">
+    <OutputPath>C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\MinSizeRel\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <PlatformToolset>v140</PlatformToolset>
+    <AssemblyName>appmain_r</AssemblyName>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\MinSizeRel\appmain_r.exe</StartProgram>
+    <AdditionalOptions>/MT</AdditionalOptions>
+    <DebugType>none</DebugType>
+    <DefineConstants>TRACE</DefineConstants>
+    <LangVersion>3</LangVersion>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32' Or '$(Configuration)|$(Platform)'=='RelWithDebInfo|x86'" Label="Configuration">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <OutputPath>C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\RelWithDebInfo\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <PlatformToolset>v140</PlatformToolset>
+    <AssemblyName>appmain_r</AssemblyName>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\images\RelWithDebInfo\appmain_r.exe</StartProgram>
+    <AdditionalOptions>/MT</AdditionalOptions>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE</DefineConstants>
+    <LangVersion>3</LangVersion>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.CSharp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.CSharp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemGroup>
+    <None Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt">
+      <Link>CMakeLists.txt</Link>
+    </None>
+  </ItemGroup>
+  <Target Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x86'"
+    Name="CustomCommand_Debug_b91d493a75edf2e8016dfc7327cbc63a"
+    Inputs="C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\scripts\cmakebuild.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\cmake-3.10.0-rc4-win64-x64\share\cmake-3.10\Modules\CSharpUtilities.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\scripts\libpath.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CMakeCSharpCompiler.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt"
+    Outputs="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt" />
+    <Exec Command="setlocal
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\cmake-3.10.0-rc4-win64-x64\bin\cmake.exe -HC:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application -BC:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds --check-stamp-file C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/appmain/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Release|x86'"
+    Name="CustomCommand_Release_b91d493a75edf2e8016dfc7327cbc63a"
+    Inputs="C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\scripts\cmakebuild.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\cmake-3.10.0-rc4-win64-x64\share\cmake-3.10\Modules\CSharpUtilities.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\scripts\libpath.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CMakeCSharpCompiler.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt"
+    Outputs="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt" />
+    <Exec Command="setlocal
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\cmake-3.10.0-rc4-win64-x64\bin\cmake.exe -HC:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application -BC:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds --check-stamp-file C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/appmain/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32' Or '$(Configuration)|$(Platform)'=='MinSizeRel|x86'"
+    Name="CustomCommand_MinSizeRel_b91d493a75edf2e8016dfc7327cbc63a"
+    Inputs="C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\scripts\cmakebuild.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\cmake-3.10.0-rc4-win64-x64\share\cmake-3.10\Modules\CSharpUtilities.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\scripts\libpath.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CMakeCSharpCompiler.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt"
+    Outputs="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt" />
+    <Exec Command="setlocal
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\cmake-3.10.0-rc4-win64-x64\bin\cmake.exe -HC:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application -BC:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds --check-stamp-file C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/appmain/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32' Or '$(Configuration)|$(Platform)'=='RelWithDebInfo|x86'"
+    Name="CustomCommand_RelWithDebInfo_b91d493a75edf2e8016dfc7327cbc63a"
+    Inputs="C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\scripts\cmakebuild.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\cmake-3.10.0-rc4-win64-x64\share\cmake-3.10\Modules\CSharpUtilities.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\scripts\libpath.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CMakeCSharpCompiler.cmake;C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\CMakeLists.txt"
+    Outputs="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\appmain\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt" />
+    <Exec Command="setlocal
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\buildsystem\cmake-3.10.0-rc4-win64-x64\bin\cmake.exe -HC:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application -BC:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds --check-stamp-file C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/appmain/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd" />
+  </Target>
+  <ItemGroup>
+    <None Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\App.config">
+      <Link>source\App.config</Link>
+    </None>
+    <None Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>source\Properties\Settings.Designer.cs</LastGenOutput>
+      <Link>source\Properties\Settings.settings</Link>
+    </None>
+    <Compile Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\application.cs" >
+      <Link>source\application.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\application.Designer.cs" >
+      <Link>source\application.Designer.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\Program.cs" >
+      <Link>source\Program.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\Properties\AssemblyInfo.cs" >
+      <Link>source\Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\Properties\Resources.Designer.cs" >
+      <Link>source\Properties\Resources.Designer.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\Properties\Settings.Designer.cs" >
+      <Link>source\Properties\Settings.Designer.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Core">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\application.resx">
+      <Link>source\application.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>application.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\application\appmain\source\Properties\Resources.resx">
+      <Link>source\Properties\Resources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\ZERO_CHECK.vcxproj">
+      <Project>{72F9DB14-15F3-3CA9-ADF4-7745B19C2397}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'MinSizeRel'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'RelWithDebInfo'">
+  </PropertyGroup>
+  <PropertyGroup>
+    <BuildDependsOn>
+      CustomCommand_Debug_b91d493a75edf2e8016dfc7327cbc63a;
+      CustomCommand_MinSizeRel_b91d493a75edf2e8016dfc7327cbc63a;
+      CustomCommand_RelWithDebInfo_b91d493a75edf2e8016dfc7327cbc63a;
+      CustomCommand_Release_b91d493a75edf2e8016dfc7327cbc63a;
+      $(BuildDependsOn)
+    </BuildDependsOn>
+  </PropertyGroup>
+</Project>

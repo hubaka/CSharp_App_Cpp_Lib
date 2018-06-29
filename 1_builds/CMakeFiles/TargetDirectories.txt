@@ -1,0 +1,4 @@
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/CMakeFiles/ALL_BUILD.dir
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/CMakeFiles/ZERO_CHECK.dir
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/appmain/CMakeFiles/appmain_r.dir
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/appmain/CMakeFiles/ALL_BUILD.dir

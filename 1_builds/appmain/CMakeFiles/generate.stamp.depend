@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/application/appmain/CMakeLists.txt
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/buildsystem/scripts/cmakebuild.cmake
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/buildsystem/cmake-3.10.0-rc4-win64-x64/share/cmake-3.10/Modules/CSharpUtilities.cmake
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/buildsystem/scripts/libpath.cmake
+C:/Users/akathire/Documents/pIm/work/Attendance/git/dummy/csharp/1_builds/CMakeFiles/3.10.0-rc4/CMakeCSharpCompiler.cmake

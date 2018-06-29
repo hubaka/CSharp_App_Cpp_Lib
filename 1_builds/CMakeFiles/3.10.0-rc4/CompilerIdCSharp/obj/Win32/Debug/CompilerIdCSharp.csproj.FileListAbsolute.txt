@@ -1,0 +1,5 @@
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CompilerIdCSharp\obj\Win32\Debug\CompilerIdCSharp.csprojResolveAssemblyReference.cache
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CompilerIdCSharp\obj\Win32\Debug\CompilerIdCSharp.exe
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CompilerIdCSharp\obj\Win32\Debug\CompilerIdCSharp.pdb
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CompilerIdCSharp\CompilerIdCSharp.exe
+C:\Users\akathire\Documents\pIm\work\Attendance\git\dummy\csharp\1_builds\CMakeFiles\3.10.0-rc4\CompilerIdCSharp\CompilerIdCSharp.pdb

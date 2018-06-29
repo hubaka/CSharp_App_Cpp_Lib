@@ -706,6 +706,7 @@ macro(_add_module_exe)
 				"System"
 				"System.Windows.Forms"
 				"System.Core"
+				"System.Drawing"
 				"System.Data"
 				"System.Data.DataSetExtensions"
 				"System.Net.Http"
