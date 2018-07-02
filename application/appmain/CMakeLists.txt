@@ -7,16 +7,7 @@ set_project_id("_PROJECT_NAME_")
 # List with modules we depend on
 #
 add_folder_dependencies(
-	#"opencv"
-	# "resource"
-	# "mainwind"
-	# "igrid"
-	# "babygrid"
-	# "errhandle"
-	# "toolbar"
-	# "dbms"
-	# "sqlite"
-	# "encrypter"
+	"filter"
 )
 
 add_lib_dependencies(
@@ -33,44 +24,28 @@ add_public_header_files(
 #
 #
 #
-add_resource_files(
-	"App.config"
-	"application.resx"
-	"Properties/Resources.resx"
-	"Properties/Settings.settings"
+# add_resource_files(
+	# "App.config"
+	# "application.resx"
 	# "Properties/Resources.resx"
 	# "Properties/Settings.settings"
-)
+# )
 
 #
 #
 #
-add_designer_cs_properties(
-	"application.resx"
-	"Properties/Resources.resx"
-	 # "Properties/AssemblyInfo.cs"
-	 # "Properties/Resources.Designer.cs"
-	 # "Properties/Settings.Designer.cs"
-	 # "Properties/Resources.resx"
-	 # "Properties/Settings.settings"
-)
+# add_designer_cs_properties(
+	# "application.resx"
+	# "Properties/Resources.resx"
+# )
 #
 # List of source files, relative to the module source folder
 #
 add_source_files(
-	"application.cs"
-	"application.Designer.cs"
-	"Program.cs"
-	"Properties/AssemblyInfo.cs"
-	"Properties/Resources.Designer.cs"
-	"Properties/Settings.Designer.cs"
-	# "program.cs"
-	# "Form1.cs"
-	# "Form1.Designer.cs"
-	# "Form1.resx"
-	# "Form1.en.resx"
-	# "Form1.es.resx"
-	# "Form1.fr.resx"
+	"main.cpp"
+	# "application.cs"
+	# "application.Designer.cs"
+	# "Program.cs"
 	# "Properties/AssemblyInfo.cs"
 	# "Properties/Resources.Designer.cs"
 	# "Properties/Settings.Designer.cs"

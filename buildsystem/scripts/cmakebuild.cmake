@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 # include CMake CSharpUtilities if you are planning on using WPF or other designer properties.
 include(CSharpUtilities)
 
+set (DEBUG_PRINTS TRUE)
 # force Unicode over Multi-byte
 # building the project as unicode instead of multi-byte project
 if(MSVC)
@@ -36,6 +37,9 @@ macro(set_project_id id)
 	string(REPLACE " " "_" PROJECT_ID ${PROJECT_ID})
 	project(${PROJECT_ID})
 	enable_language(CSharp)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: set_project_id ${PROJECT_ID}")
+	endif()
 	
 	# Turn on the ability to create folders to organize projects (.vcproj)
 	# It creates "CMakePredefinedTargets" folder by default and adds CMake
@@ -65,6 +69,9 @@ endmacro()
 #		libraryName : library name
 #-----------------------------------------------------------------------------------------
 function(getLibraryName libraryName folderName)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: getLibraryName ${PROJECT_ID}")
+	endif()
 	# Debug versus release naming
 	if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 		set(BUILD_TYPE "d")
@@ -87,6 +94,9 @@ endfunction()
 #		NOTE: 
 #-----------------------------------------------------------------------------------------
 macro(_config_module)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _config_module ${PROJECT_ID}")
+	endif()
 	if(NOT BFW_ROOT_DIR)
 		#
 		# Initialize some module variables that will be used to collect different kind of files
@@ -123,17 +133,23 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_source_layers)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_source_layers ${PROJECT_ID}")
+	endif()
 	if(${ARGC})
 		set(src_type FALSE)
 		# _src_layer_list - list to store the source folder names
 		set(_src_layer_list)
 		set(_bin_layer_list)
+		set(_lib_layer_list)
 		foreach(idx ${ARGN})
 			if (NOT src_type)
 				set(src_type ${idx})
 			else()
 				if (${src_type} STREQUAL "s")
 					list(APPEND _src_layer_list ${idx})
+				elseif (${src_type} STREQUAL "l")
+					list(APPEND _lib_layer_list ${idx})
 				else()
 					message(FATAL_ERROR "invalid argument")
 				endif()
@@ -146,6 +162,40 @@ macro(add_source_layers)
 	endif()
 	if (_src_layer_list)
 		_add_source_layers(${_src_layer_list})
+	endif()
+	if (_lib_layer_list)
+		_add_library_layers(${_lib_layer_list})
+	endif()
+endmacro()
+
+#-----------------------------------------------------------------------------------------
+# MACRO	_add_library_layers
+#		Adds the static library folders from list received via argument to the build as subdirectory
+#
+# INPUT
+#		${ARGN}	: List of the folder names, which will be added as source folders
+#					- First argument will be depicting the type of folder 
+#							("s" as source folder)
+#					- Second argument will be mentioning the name of the folder
+#
+# OUTPUT
+#		none	: 
+#
+#-----------------------------------------------------------------------------------------
+macro(_add_library_layers)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_library_layers ${PROJECT_ID}")
+	endif()
+	if (${ARGC})
+		foreach(idx ${ARGN})
+			set(folder_source_path ${CMAKE_SOURCE_DIR}/../${idx})
+			set(folder_binary_path ${CMAKE_BINARY_DIR}/${idx})
+			if (IS_DIRECTORY ${folder_source_path})
+				add_subdirectory(${folder_source_path} ${folder_binary_path})
+			else()
+				message(FATAL_ERROR "Could not find the directory of folder: ${idx}")
+			endif()
+		endforeach()
 	endif()
 endmacro()
 
@@ -164,6 +214,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(_add_source_layers)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_source_layers ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		foreach(idx ${ARGN})
 			set(folder_source_path ${CMAKE_SOURCE_DIR}/../${idx})
@@ -193,6 +246,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_subfolder_dependency)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_subfolder_dependency ${PROJECT_ID}")
+	endif()
 	set(subfolder ${CMAKE_CURRENT_SOURCE_DIR}/subfolder.cmake)
 	if (EXISTS ${subfolder})
 		include(${subfolder})
@@ -220,6 +276,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_subfolder)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_subfolder ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		set(_binary_layer_list ${BINARY_LAYER_LIST})
 		foreach(idx ${ARGN})
@@ -242,6 +301,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_folder_dependencies)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_folder_dependencies ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		foreach(foldername ${ARGN})
 			set(COMPONENT_PATH "NOT_FOUND")
@@ -279,6 +341,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_lib_dependencies)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_lib_dependencies ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		foreach(foldername ${ARGN})
 			set(COMPONENT_PATH "NOT_FOUND")
@@ -309,6 +374,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_public_header_files)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_public_header_files ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		foreach(hdr_filename ${ARGN})
 			_add_header_file(${CMAKE_CURRENT_SOURCE_DIR}/source/${hdr_filename})
@@ -328,6 +396,9 @@ endmacro()
 #		
 #-----------------------------------------------------------------------------------------
 macro(_add_header_file hdr_file)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_header_file ${PROJECT_ID}")
+	endif()
 	get_filename_component(hdr_file_absolute_path ${hdr_file} ABSOLUTE)
 	if (${hdr_file_absolute_path} MATCHES \\.h$|\\.hpp$)
 		if(NOT EXISTS ${hdr_file_absolute_path})
@@ -351,6 +422,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_public_header_folder)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_public_header_folder ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		file(GLOB_RECURSE HHDRFILENAME RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/source/ *.h*)
 		set(${PROJECT_ID}_PUBLIC_HDR_RETAIN_FOLDERNAME TRUE)
@@ -374,6 +448,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_source_files)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_source_files ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		foreach(src ${ARGN})
 			_add_source_file(${CMAKE_CURRENT_SOURCE_DIR}/source/${src})
@@ -393,6 +470,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(_add_source_file src_file)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_source_file ${PROJECT_ID}")
+	endif()
 	get_filename_component(src_file_absolute_path ${src_file} ABSOLUTE)
 	if (${src_file_absolute_path} MATCHES \\.c$|\\.cpp$|\\.rc$|\\.cs$|\\.resx$)
 		list(APPEND ${PROJECT_ID}_SRC ${src_file_absolute_path})
@@ -413,6 +493,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_resource_files)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_resource_files ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		foreach(src ${ARGN})
 			_add_resource_file(${CMAKE_CURRENT_SOURCE_DIR}/source/${src})
@@ -432,6 +515,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_designer_cs_properties)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_designer_cs_properties ${PROJECT_ID}")
+	endif()
 	if (${ARGC})
 		foreach(src ${ARGN})
 			_add_designer_cs_properties(${CMAKE_CURRENT_SOURCE_DIR}/source/${src})
@@ -451,6 +537,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(_add_resource_file resrc_file)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_resource_file ${PROJECT_ID}")
+	endif()
 	get_filename_component(resrc_file_absolute_path ${resrc_file} ABSOLUTE)
 	if (${resrc_file_absolute_path} MATCHES \\.rc$|\\.resx$|\\.config$|\\.settings$)
 		list(APPEND ${PROJECT_ID}_SRC ${resrc_file_absolute_path})
@@ -471,6 +560,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(_add_designer_cs_properties setting_file)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_designer_cs_properties ${PROJECT_ID}")
+	endif()
 	get_filename_component(setting_file_absolute_path ${setting_file} ABSOLUTE)
 	if (${setting_file_absolute_path} MATCHES \\.rc$|\\.resx$|\\.config$|\\.settings$|\\.cs$)
 		list(APPEND ${PROJECT_ID}_PROJECT_SETTING ${setting_file_absolute_path})
@@ -491,11 +583,10 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(install_module_lib)
-	if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/source)
-		set(_target_objects ${BFW_TARGET_OBJECTS})
-		list(APPEND ${_target_objects} ${LIBRARYNAME})
-		set(BFW_TARGET_OBJECTS ${_target_objects} CACHE INTERNAL "")
-	else()
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: install_module_lib ${PROJECT_ID}")
+	endif()
+	if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/source)
 		message(FATAL_ERROR "There is no source folder")
 	endif()
 	
@@ -565,7 +656,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(add_lib_header_files)
-	
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_lib_header_files  ${PROJECT_ID}")
+	endif()
 	if(${PROJECT_ID}_PUBLIC_HEADER)
 		list(REMOVE_DUPLICATES ${PROJECT_ID}_PUBLIC_HEADER)
 	endif()
@@ -622,7 +715,11 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(_add_module_lib)
-		add_library(${LIBRARYNAME} OBJECT ${${PROJECT_ID}_SRC} ${${PROJECT_ID}_PUBLIC_HEADER})
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_module_lib ${PROJECT_ID}")
+		message(STATUS "aka: lib name ${LIBRARYNAME}")
+	endif()
+		add_library(${LIBRARYNAME} STATIC ${${PROJECT_ID}_SRC} ${${PROJECT_ID}_PUBLIC_HEADER})
 endmacro()
 
 #-----------------------------------------------------------------------------------------
@@ -638,6 +735,9 @@ endmacro()
 #		NOTE:
 #-----------------------------------------------------------------------------------------
 macro(add_libs_to_exe)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: add_libs_to_exe ${PROJECT_ID}")
+	endif()
 	foreach(lib ${ARGN})
 		list(APPEND ${PROJECT_ID}_LIBS ${lib})
 	endforeach()
@@ -656,6 +756,9 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(install_module_exe)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: install_module_exe ${PROJECT_ID}")
+	endif()
 	#
 	# Set the executable output path
 	#
@@ -679,17 +782,22 @@ endmacro()
 #
 #-----------------------------------------------------------------------------------------
 macro(_add_module_exe)
-	set(_obj_libs)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_module_exe ${PROJECT_ID}")
+	endif()
+	set(_dependent_libs)
 	foreach(_lib ${${PROJECT_ID}_DEPENDS})
 		getLibraryName(_libname ${_lib})
-		list(APPEND _obj_libs "$<TARGET_OBJECTS:${_libname}>")
+		list(APPEND _dependent_libs "${_libname}")
 	endforeach()
 
-	
-	#message("pubhdr: ${${PROJECT_ID}_PUBLIC_HEADER}")
-	add_executable(${LIBRARYNAME} ${${PROJECT_ID}_SRC} ${_obj_libs} ${${PROJECT_ID}_PUBLIC_HEADER})
-	message("aka: srcfiles ${${PROJECT_ID}_PROJECT_SETTING}")
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: obj libs ${_dependent_libs}")
+		#message("pubhdr: ${${PROJECT_ID}_PUBLIC_HEADER}")
+	endif()
+	add_executable(${LIBRARYNAME} ${${PROJECT_ID}_SRC} ${${PROJECT_ID}_PUBLIC_HEADER})
 	target_link_libraries(${LIBRARYNAME} ${${PROJECT_ID}_LIBS})
+	target_link_libraries(${LIBRARYNAME} ${_dependent_libs})
 	csharp_set_windows_forms_properties(${${PROJECT_ID}_PROJECT_SETTING})
 	
 	if(MSVC)
