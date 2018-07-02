@@ -4,6 +4,8 @@ class TweetBankCore
 public:
    TweetBankCore();
    ~TweetBankCore();
-   void tweet();
+   int tweet();
+private:
+	int m_var;
 };
 

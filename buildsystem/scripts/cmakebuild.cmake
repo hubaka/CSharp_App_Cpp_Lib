@@ -9,7 +9,7 @@ set (DEBUG_PRINTS TRUE)
 if(MSVC)
     #add_definitions(-DUNICODE -D_UNICODE)
 	include(libpath)
-	set(RUNTIMELIB "/MT")
+	set(RUNTIMELIB "/MD")
 endif()
 
 if(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
@@ -645,6 +645,79 @@ macro(install_module_lib)
 endmacro()
 
 #-----------------------------------------------------------------------------------------
+# MACRO	install_shared_module_lib
+#		shared Library (dll) of the module is built in this function
+#
+# INPUT
+#		none
+#
+# OUTPUT
+#		module library
+#
+#-----------------------------------------------------------------------------------------
+macro(install_shared_module_lib)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: install_shared_module_lib ${PROJECT_ID}")
+	endif()
+	if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/source)
+		message(FATAL_ERROR "There is no source folder")
+	endif()
+	
+	if(${PROJECT_ID}_PUBLIC_HEADER)
+		list(REMOVE_DUPLICATES ${PROJECT_ID}_PUBLIC_HEADER)
+	endif()
+	
+	_add_shared_module_lib()
+	
+	get_filename_component(_LIB_INSTALL_DIR ${PROJECT_INSTALL_DIRECTORY}/${PROJECT_ID} ABSOLUTE)
+	
+	#
+	# Purge any headers that are no longer part of the public ones.
+	#
+	file(GLOB _fullfoundhdrs "${_LIB_INSTALL_DIR}/*.h*")
+	set(_install_hdrs)
+	foreach(_header ${_fullfoundhdrs})
+		get_filename_component(_name ${_header} NAME)
+		list(APPEND _install_hdrs ${_name})
+	endforeach()
+	
+	if(_install_hdrs)
+		set(_hdrs)
+		foreach(_header ${${PROJECT_ID}_PUBLIC_HEADER})
+			get_filename_component(_name ${_header} NAME)
+			list(APPEND _hdrs ${_name})
+		endforeach()
+		
+		foreach(_header ${_hdrs})
+			list(REMOVE_ITEM _install_hdrs ${_hdrs})
+		endforeach()
+		
+		foreach(_header ${_install_hdrs})
+			message("Purging dead header file: ${_LIB_INSTALL_DIR}/${_header}")
+			execute_process(COMMAND ${CMAKE_COMMAND} -E remove ${_LIB_INSTALL_DIR}/${_header})
+		endforeach()
+	endif()
+	
+	#
+	# Copy public header files to install dir
+	#
+	set(_clean_headers)
+	foreach(_header ${${PROJECT_ID}_PUBLIC_HEADER})
+		if (NOT ${PROJECT_ID}_PUBLIC_HDR_RETAIN_FOLDERNAME)
+			configure_file(${_header} ${_LIB_INSTALL_DIR} COPYONLY)
+		else()
+			#message(STATUS "aka: hit ${PROJECT_INSTALL_DIRECTORY}/${PROJECT_ID}")
+			#message(STATUS "aka: hit ${${PROJECT_ID}_PUBLIC_HDR_RELATIVEPATH}")
+			string(REPLACE "${${PROJECT_ID}_PUBLIC_HDR_RELATIVEPATH}" "" HDRFOLDERPATH ${_header})
+			#message(STATUS "aka: hit ${OUTPUTSTRING} ${_LIB_INSTALL_DIR}")
+			configure_file(${_header} ${_LIB_INSTALL_DIR}/${HDRFOLDERPATH} COPYONLY)
+		endif()
+	endforeach()
+	set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${_clean_headers}")
+	set_target_properties(${LIBRARYNAME} PROPERTIES COMPILE_FLAGS ${RUNTIMELIB})
+endmacro()
+
+#-----------------------------------------------------------------------------------------
 # MACRO	add_lib_files
 #		Library of the module is built in this function
 #
@@ -720,6 +793,45 @@ macro(_add_module_lib)
 		message(STATUS "aka: lib name ${LIBRARYNAME}")
 	endif()
 		add_library(${LIBRARYNAME} STATIC ${${PROJECT_ID}_SRC} ${${PROJECT_ID}_PUBLIC_HEADER})
+endmacro()
+
+#-----------------------------------------------------------------------------------------
+# MACRO	_add_module_lib
+#		
+#
+# INPUT
+#		
+#
+# OUTPUT
+#		none	: 
+#
+#-----------------------------------------------------------------------------------------
+macro(_add_shared_module_lib)
+	if (DEBUG_PRINTS)
+		message(STATUS "aka: _add_shared_module_lib ${PROJECT_ID}")
+		message(STATUS "aka: lib name ${LIBRARYNAME}")
+	endif()
+	
+	set(_dependent_libs)
+	foreach(_lib ${${PROJECT_ID}_DEPENDS})
+		getLibraryName(_libname ${_lib})
+		list(APPEND _dependent_libs "${_libname}")
+	endforeach()
+	
+	if (DEBUG_PRINTS)
+		message(STATUS "----> aka: dependent libs ${${PROJECT_ID}_PUBLIC_HEADER}")
+	endif()
+
+	
+	
+	add_library(${LIBRARYNAME} SHARED ${${PROJECT_ID}_SRC} ${${PROJECT_ID}_PUBLIC_HEADER})
+	target_link_libraries(${LIBRARYNAME} ${_dependent_libs})
+	#SET_TARGET_PROPERTIES(${LIBRARYNAME} PROPERTIES COMPILE_FLAGS "/clr") 
+	target_compile_options(${LIBRARYNAME} PRIVATE /clr)
+	set_target_properties(${LIBRARYNAME} PROPERTIES COMPILE_FLAGS ${RUNTIMELIB})
+	string(REPLACE "/EHsc" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+	string(REPLACE "/RTC1" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+	
 endmacro()
 
 #-----------------------------------------------------------------------------------------

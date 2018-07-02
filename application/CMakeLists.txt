@@ -5,6 +5,7 @@ set_project_id("_PROJECT_NAME_")
 
 add_source_layers(
 	"l" "algo"
+	"l" "cppclr"
 	#"s" "common"
 	# "s" "windows"
 	# "s" "database"

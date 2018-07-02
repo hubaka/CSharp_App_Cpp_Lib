@@ -4,6 +4,7 @@
 
 TweetBankCore::TweetBankCore()
 {
+	m_var = 0;
 }
 
 
@@ -11,7 +12,8 @@ TweetBankCore::~TweetBankCore()
 {
 }
 
-void TweetBankCore::tweet()
+int TweetBankCore::tweet()
 {
-   std::cout << "Yay! You got a C# project with C++ library working" << std::endl;
+	m_var++;
+	return m_var;
 }
